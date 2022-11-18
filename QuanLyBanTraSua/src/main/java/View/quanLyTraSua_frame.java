@@ -64,7 +64,7 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
         txtTrangThaiNL.setText(String.valueOf(kh.getTrangThai()));
         txtXuatXuNL.setText(kh.getXuatXu());
         txtHanSuDungNL.setText(String.valueOf(kh.getHanSuDung()));
-        dateNXSNL.setDate(kh.getNgaySanXuat());
+        dateNSXNL.setDate(kh.getNgaySanXuat());
 
     }
     /**
@@ -144,9 +144,9 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         btnSua = new javax.swing.JButton();
-        dateNXSNL = new com.toedter.calendar.JDateChooser();
         jLabel16 = new javax.swing.JLabel();
         txtHanSuDungNL = new javax.swing.JTextField();
+        dateNSXNL = new com.toedter.calendar.JDateChooser();
         pnlNhanVien = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         pnlKhachHang = new javax.swing.JPanel();
@@ -652,7 +652,7 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
                                 .addComponent(btnReset))
                             .addComponent(txtNhaCungCapNL)
                             .addComponent(txtXuatXuNL)
-                            .addComponent(dateNXSNL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(dateNSXNL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(46, 46, 46)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -666,23 +666,24 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlNguyenLieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlNguyenLieuLayout.createSequentialGroup()
+                .addGroup(pnlNguyenLieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtMaNL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtTrangThaiNL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16)
+                    .addComponent(txtHanSuDungNL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlNguyenLieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlNguyenLieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(pnlNguyenLieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtMaNL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13)
-                            .addComponent(txtTrangThaiNL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16)
-                            .addComponent(txtHanSuDungNL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlNguyenLieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnlNguyenLieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel9)
-                                .addComponent(txtTenNL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(dateNXSNL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                            .addComponent(jLabel9)
+                            .addComponent(txtTenNL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlNguyenLieuLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(dateNSXNL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(14, 14, 14)
                 .addGroup(pnlNguyenLieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtGiaNL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -868,7 +869,7 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
         NLVMD.setGia(Double.parseDouble(txtGia.getText()));
         NLVMD.setHanSuDung(Integer.parseInt(txtHanSuDungNL.getText()));
         NLVMD.setMa(txtMaNL.getText());
-        NLVMD.setNgaySanXuat(dateNXSNL.getDate());
+        NLVMD.setNgaySanXuat(dateNSXNL.getDate());
         NLVMD.setNhaCungCap(txtNhaCungCapNL.getText());
         NLVMD.setSoLuong(Integer.parseInt(txtSoLuongNL.getText()));
         NLVMD.setTen(txtTenNL.getText());
@@ -981,7 +982,7 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
     private javax.swing.JButton btnXoaDoUong;
     private javax.swing.JComboBox<String> cbbDanhMucKho;
     private javax.swing.JComboBox<String> cbbSize;
-    private com.toedter.calendar.JDateChooser dateNXSNL;
+    private com.toedter.calendar.JDateChooser dateNSXNL;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
