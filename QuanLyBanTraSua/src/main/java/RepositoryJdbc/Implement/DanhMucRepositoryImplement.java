@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DanhMucRepositoryImplement implements DanhMucRepositoryInterface {
-    private Connection connection;
+    private static Connection connection;
     public DanhMucRepositoryImplement(){
         connection = DBContext.getConnection();
     }

@@ -415,14 +415,14 @@
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblMaDoUong" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="lblTenSpkho" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Component id="lblTenSp" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                                   <Component id="lblGia" min="-2" pref="51" max="-2" attributes="0"/>
-                                  <Component id="lblNhaCungCapKho" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblVi" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="txtNhaCungCapKho" pref="243" max="32767" attributes="0"/>
+                                      <Component id="txtVi" pref="243" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="408" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -433,14 +433,14 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblXuatXukho" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                                          <Component id="lblPhanLoaiKho" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblGiaNhapKho" min="-2" pref="69" max="-2" attributes="0"/>
+                                          <Component id="lblSizeSanPham" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                                          <Component id="lbldanhmucSP" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblTrangthai" min="-2" pref="69" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtGiaNhapKho" alignment="0" pref="202" max="32767" attributes="0"/>
-                                          <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtTrangThai" alignment="0" pref="202" max="32767" attributes="0"/>
+                                          <Component id="cbbDanhmucSp" alignment="0" max="32767" attributes="0"/>
                                           <Component id="cbbSize" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
@@ -455,16 +455,16 @@
                               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblMaDoUong" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblPhanLoaiKho" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbldanhmucSP" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtmaDoUong" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbbDanhmucSp" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblTenSpkho" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblXuatXukho" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblTenSp" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblSizeSanPham" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtTenDoUong" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="cbbSize" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -477,15 +477,15 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtGiaNhapKho" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblGiaNhapKho" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtTrangThai" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblTrangthai" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblNhaCungCapKho" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNhaCungCapKho" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblVi" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtVi" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="36" max="32767" attributes="0"/>
                           </Group>
@@ -498,27 +498,27 @@
                         <Property name="text" type="java.lang.String" value="M&#xe3; "/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblTenSpkho">
+                    <Component class="javax.swing.JLabel" name="lblTenSp">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="T&#xea;n"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblNhaCungCapKho">
+                    <Component class="javax.swing.JLabel" name="lblVi">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="V&#x1ecb;"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblPhanLoaiKho">
+                    <Component class="javax.swing.JLabel" name="lbldanhmucSP">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Danh M&#x1ee5;c"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblXuatXukho">
+                    <Component class="javax.swing.JLabel" name="lblSizeSanPham">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Size"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblGiaNhapKho">
+                    <Component class="javax.swing.JLabel" name="lblTrangthai">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Tr&#x1ea1;ng Th&#xe1;i"/>
                       </Properties>
@@ -527,19 +527,14 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTenDoUong">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtNhaCungCapKho">
+                    <Component class="javax.swing.JTextField" name="txtVi">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtGiaNhapKho">
+                    <Component class="javax.swing.JTextField" name="txtTrangThai">
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox1">
+                    <Component class="javax.swing.JComboBox" name="cbbDanhmucSp">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -556,12 +551,7 @@
                     <Component class="javax.swing.JComboBox" name="cbbSize">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -630,14 +620,12 @@
                     <Component class="javax.swing.JComboBox" name="cbbDanhMucKho">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbbDanhMucKhoActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -710,6 +698,9 @@
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblSanPhamDouongMouseClicked"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -724,6 +715,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="T&#xec;m Ki&#x1ebf;m"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemKhoActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -742,6 +736,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnclearFromThongtinSP" pref="187" max="32767" attributes="0"/>
                                   <Component id="btnXoaDoUong" alignment="0" pref="187" max="32767" attributes="0"/>
                                   <Component id="btnSuaDoUong" alignment="0" pref="187" max="32767" attributes="0"/>
                                   <Component id="btnThemdoUong" alignment="0" max="32767" attributes="0"/>
@@ -753,13 +748,14 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Component id="btnThemdoUong" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnSuaDoUong" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnXoaDoUong" min="-2" pref="50" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnclearFromThongtinSP" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -772,6 +768,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThemdoUongActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSuaDoUong">
                       <Properties>
@@ -780,6 +779,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuaDoUongActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnXoaDoUong">
                       <Properties>
@@ -788,6 +790,17 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoaDoUongActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnclearFromThongtinSP">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Clear"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnclearFromThongtinSPActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
