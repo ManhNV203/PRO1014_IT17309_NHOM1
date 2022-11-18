@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
+
 package Service.Interface;
 
-/**
- *
- * @author ADMIN
- */
+import DomainModel.Size;
+import java.util.List;
+
+
 public interface SizeServiceInterface {
-    
+    public List<Size> getAllSize();
 }

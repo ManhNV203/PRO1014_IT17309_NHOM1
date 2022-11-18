@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  */
 public class SizeRepositoryImplement implements SizeRepositoryInterface {
 
-    private Connection connection;
+    private static Connection connection;
 
     public SizeRepositoryImplement() {
         connection = DBContext.getConnection();
