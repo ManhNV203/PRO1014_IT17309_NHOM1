@@ -2,15 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package Service.Interface;
+package RepositoryJdbc.Interface;
 
-import DomainModel.Size;
+import DomainModel.HoaDon;
 import java.util.List;
 
 /**
  *
- * @author ADMIN
+ * @author FPTSHOP
  */
-public interface SizeServiceInterface {
-    public List<Size> getAllSize();
+public interface HoaDonRepositoryInterface {
+    public List<HoaDon> getList();
 }

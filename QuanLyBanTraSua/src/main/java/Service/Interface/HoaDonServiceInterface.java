@@ -4,13 +4,14 @@
  */
 package Service.Interface;
 
-import DomainModel.Size;
+import DomainModel.HoaDon;
+import ViewModel.HoaDonVModel;
 import java.util.List;
 
 /**
  *
- * @author ADMIN
+ * @author FPTSHOP
  */
-public interface SizeServiceInterface {
-    public List<Size> getAllSize();
+public interface HoaDonServiceInterface {
+    public List<HoaDonVModel> getList();
 }
