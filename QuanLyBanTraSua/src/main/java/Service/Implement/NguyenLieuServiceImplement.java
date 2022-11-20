@@ -82,22 +82,34 @@ public class NguyenLieuServiceImplement implements NguyenLieuServiceInterface{
     }
 
     @Override
-    public void add(NguyenLieuVModel nl) throws Exception{
-        try {
-            NguyenLieu domain = new NguyenLieu();
-            domain.setGia(nl.getGia());
-            domain.setHSD(nl.getHanSuDung());
-            domain.setMa(nl.getMa());
-            domain.setNgaySanXuat(nl.getNgaySanXuat());
-            domain.setNhaCungCap(nl.getNhaCungCap());
-            domain.setSoLuong(nl.getSoLuong());
-            domain.setTen(nl.getTen());
-            domain.setTrangThai(nl.getTrangThai());
-            domain.setXuatXu(nl.getXuatXu());
-            nlRP.create(domain);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw e;
+    public String add(NguyenLieu nl) {
+        boolean check ;
+        check = nlRP.create(nl);
+        if(check == true){
+            return "Thành công";
+        }else{
+            return "Th?t b?i";
         }
+        
+        
+//        try {
+//            NguyenLieu domain = new NguyenLieu();
+//            domain.setGia(nl.getGia());
+//            domain.setHSD(nl.getHanSuDung());
+//            domain.setMa(nl.getMa());
+//            domain.setNgaySanXuat(nl.getNgaySanXuat());
+//            domain.setNhaCungCap(nl.getNhaCungCap());
+//            domain.setSoLuong(nl.getSoLuong());
+//            domain.setTen(nl.getTen());
+//            domain.setTrangThai(nl.getTrangThai());
+//            domain.setXuatXu(nl.getXuatXu());
+//            check = nlRP.create(domain);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            
+//        } 
+//        if(check == true){
+//            
+//        }
     }
 }

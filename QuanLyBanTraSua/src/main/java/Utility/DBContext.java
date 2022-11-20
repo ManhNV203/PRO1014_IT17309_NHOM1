@@ -1,24 +1,29 @@
-
 package Utility;
 
+import DomainModel.NguyenLieu;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DBContext {
-        public static final String HOSTNAME = "localhost";
-    
+
+    public static final String HOSTNAME = "localhost";
+
     public static final String PORT = "1433";
 
     public static final String USER = "sa";
 
-    public static final String PASSWORD = "123456";
+    public static final String PASSWORD = "sa";
 
     public static final String DATABASE_NAME = "UNG_DUNG_QUAN_LY_QUAN_TRA_SUA";
-    
+
     public static final Boolean USING_SSL = false;
 
     public static final String POPUP_HEADER = "Thông báo";
@@ -38,8 +43,8 @@ public class DBContext {
                     .append("databaseName=").append(DATABASE_NAME).append(";")
                     .append("user=").append(USER).append(";")
                     .append("password=").append(PASSWORD).append(";");
-                connectString.append("encrypt=true;trustServerCertificate=true;");
-            
+            connectString.append("encrypt=true;trustServerCertificate=true;");
+
             CONNECT_STRING = connectString.toString();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
@@ -64,4 +69,6 @@ public class DBContext {
         }
         return connection;
     }
+
+    
 }
