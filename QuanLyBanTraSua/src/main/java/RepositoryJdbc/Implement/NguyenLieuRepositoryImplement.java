@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import RepositoryJdbc.Interface.NguyenLieuRepositoryInterface;
+import java.sql.Date;
 
 /**
  *
@@ -24,7 +25,9 @@ public class NguyenLieuRepositoryImplement implements NguyenLieuRepositoryInterf
     public List<NguyenLieu> all() {
          List<NguyenLieu> list = new ArrayList<>();
             String sql = "SELECT * from NguyenLieu";
-            try (Connection c = DBContext.getConnection();  PreparedStatement ps = c.prepareStatement(sql)){
+            try {
+                Connection c = DBContext.getConnection();
+                PreparedStatement ps = c.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {
@@ -50,29 +53,34 @@ public class NguyenLieuRepositoryImplement implements NguyenLieuRepositoryInterf
             return list;
     }
 
-    @Override
-    public void create(NguyenLieu nl) throws Exception {
-        String sql = "insert into NguyenLieu(Ma,Ten,Gia,SoLuong,TrangThai,NXS,HXD,NhaCungCap,XuatXu) values (?,?,?,?,?,?,?,?,?)";
-        
-        try ( Connection c = DBContext.getConnection();  PreparedStatement ps = c.prepareStatement(sql);) {
-            ps.setObject(1, nl.getMa());
-            ps.setObject(2, nl.getTen());
-            ps.setObject(3, nl.getGia());
-            ps.setObject(4, nl.getSoLuong());
-            ps.setObject(5, nl.getTrangThai());
-            ps.setObject(6, nl.getNgaySanXuat());
-            ps.setObject(7, nl.getHSD());
-            ps.setObject(8, nl.getNhaCungCap());
-            ps.setObject(9, nl.getXuatXu());
-            
-            
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw e;
-        }
-        
-    
-    }
+//    @Override
+//    public boolean create(NguyenLieu nl)  {
+//        String sql = "insert into NguyenLieu(Ma,Ten,Gia,SoLuong,TrangThai,NXS,HXD,NhaCungCap,XuatXu) values (?,?,?,?,?,?,?,?,?)";
+//        int check =0;
+//        
+//        try(Connection c = DBContext.getConnection();  PreparedStatement ps = c.prepareStatement(sql);) {
+//            
+//            ps.setObject(1, nl.getMa());
+//            ps.setObject(2, nl.getTen());
+//            ps.setObject(3, nl.getGia());
+//            ps.setObject(4, nl.getSoLuong());
+//            ps.setObject(5, nl.getTrangThai());
+//            ps.setDate(6, (Date) nl.getNgaySanXuat());
+//            ps.setObject(7, nl.getHSD());
+//            ps.setObject(8, nl.getNhaCungCap());
+//            ps.setObject(9, nl.getXuatXu());
+//            
+//            check = ps.executeUpdate();
+//            
+//           
+//            
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            
+//        }
+//        return check >0;
+//    
+//    }
 
     @Override
     public void update(String ma, NguyenLieu nl) throws Exception {
@@ -94,4 +102,28 @@ public class NguyenLieuRepositoryImplement implements NguyenLieuRepositoryInterf
 //        list = nl.all();
 //        System.out.println(list.toString());
 //    }
+
+    @Override
+    public boolean create(NguyenLieu nl) {
+        String sql = "insert into NguyenLieu(Ma,Ten,Gia,SoLuong,TrangThai,NXS,HXD,NhaCungCap,XuatXu) values (?,?,?,?,?,?,?,?,?)";
+        int check =0;
+        try {
+            Connection c = DBContext.getConnection();
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setObject(1, nl.getMa());
+            ps.setObject(2, nl.getTen());
+            ps.setObject(3, nl.getGia());
+            ps.setObject(4, nl.getSoLuong());
+            ps.setObject(5, nl.getTrangThai());
+            ps.setObject(6, nl.getNgaySanXuat());
+            ps.setObject(7, nl.getHSD());
+            ps.setObject(8, nl.getNhaCungCap());
+            ps.setObject(9, nl.getXuatXu());
+            
+            check = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check>0;
+    }
 }

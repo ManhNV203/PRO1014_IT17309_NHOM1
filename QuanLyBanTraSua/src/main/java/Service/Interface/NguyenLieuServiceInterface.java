@@ -5,6 +5,7 @@
 package Service.Interface;
 
 
+import DomainModel.NguyenLieu;
 import ViewModel.NguyenLieuVModel;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface NguyenLieuServiceInterface {
     List<NguyenLieuVModel> getAll();
     public void delete(String Ma);
     public void update(NguyenLieuVModel nl, String Ma);
-    public void add(NguyenLieuVModel nl) throws Exception;
+    String add(NguyenLieu nl) ;
     boolean checkMa(String Ma);
     List<NguyenLieuVModel> getOne(String ma);
 }
