@@ -1,6 +1,7 @@
 package View;
 
 import DomainModel.DanhMuc;
+import DomainModel.NguyenLieu;
 import DomainModel.SanPham;
 import DomainModel.Size;
 import Service.Implement.DanhMucServiceImplement;
@@ -1510,25 +1511,20 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
 
     private void btnThemNLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemNLActionPerformed
         // TODO add your handling code here:
-        NguyenLieuVModel NLVMD = new NguyenLieuVModel();
-        NLVMD.setGia(Double.parseDouble(txtGia.getText()));
-        NLVMD.setHanSuDung(Integer.parseInt(txtHanSuDungNL.getText()));
-        NLVMD.setMa(txtMaNL.getText());
-        NLVMD.setNgaySanXuat(dateNSXNL.getDate());
-        NLVMD.setNhaCungCap(txtNhaCungCapNL.getText());
-        NLVMD.setSoLuong(Integer.parseInt(txtSoLuongNL.getText()));
-        NLVMD.setTen(txtTenNL.getText());
-        NLVMD.setTrangThai(Integer.parseInt(txtTrangThaiNL.getText()));
-        NLVMD.setXuatXu(txtXuatXuNL.getText());
-        try  {
-            service.add(NLVMD);
-            listNL = service.getAll();
-            JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
-            fillToTBNL(listNL);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(rootPane, "l?i");
-        }
+        NguyenLieu NLMD = new NguyenLieu();
+        NLMD.setGia(Double.parseDouble(txtGiaNL.getText()));
+        NLMD.setHSD(Integer.parseInt(txtHanSuDungNL.getText()));
+        NLMD.setMa(txtMaNL.getText());
+        NLMD.setNgaySanXuat(dateNSXNL.getDate());
+        NLMD.setNhaCungCap(txtNhaCungCapNL.getText());
+        NLMD.setSoLuong(Integer.parseInt(txtSoLuongNL.getText()));
+        NLMD.setTen(txtTenNL.getText());
+        NLMD.setTrangThai(Integer.parseInt(txtTrangThaiNL.getText()));
+        NLMD.setXuatXu(txtXuatXuNL.getText());
+        
+        JOptionPane.showMessageDialog(rootPane, service.add(NLMD));
+        listNL = service.getAll();
+        fillToTBNL(listNL);
     }//GEN-LAST:event_btnThemNLActionPerformed
 
     private void btnDangXuatMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatMenuActionPerformed
