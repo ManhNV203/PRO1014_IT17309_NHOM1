@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface NguyenLieuRepositoryInterface {
     public List<NguyenLieu> all();
-    public void create(NguyenLieu nl) throws Exception;
+    boolean create(NguyenLieu nl) ;
     public void update(String ma,NguyenLieu nl) throws Exception;
     public void delete(String ma) throws Exception;
     NguyenLieu getone(String ma);

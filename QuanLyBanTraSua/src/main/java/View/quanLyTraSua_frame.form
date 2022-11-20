@@ -833,6 +833,8 @@
                                           <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                           <Component id="btnSuaNL" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="jLabel10" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                                      <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel9" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
@@ -840,43 +842,47 @@
                                           </Group>
                                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtTimKiemNL" max="32767" attributes="0"/>
                                               <Component id="txtMaNL" alignment="0" pref="220" max="32767" attributes="0"/>
                                               <Component id="txtTenNL" alignment="0" max="32767" attributes="0"/>
                                               <Component id="txtGiaNL" alignment="0" max="32767" attributes="0"/>
                                               <Component id="txtSoLuongNL" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Component id="jLabel10" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                                      <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel15" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel15" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                                                  <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="btnXoaNL" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtTrangThaiNL" alignment="0" pref="199" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                                  <Component id="btnResetNL" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="txtNhaCungCapNL" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtXuatXuNL" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="dateNSXNL" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                          <Component id="jLabel16" min="-2" pref="79" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="txtHanSuDungNL" min="-2" pref="152" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="btnXoaNL" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="btnTimKiemNL" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtTrangThaiNL" alignment="0" pref="199" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                          <Component id="btnResetNL" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="txtNhaCungCapNL" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtXuatXuNL" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="dateNSXNL" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                  <Component id="jLabel16" min="-2" pref="79" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtHanSuDungNL" min="-2" pref="152" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -925,7 +931,12 @@
                               <Component id="txtSoLuongNL" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtXuatXuNL" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="48" max="32767" attributes="0"/>
+                          <EmptySpace pref="14" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtTimKiemNL" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnTimKiemNL" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnThemNL" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnSuaNL" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1062,6 +1073,13 @@
                 <Component class="javax.swing.JTextField" name="txtSoLuongNL">
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="dateNSXNL">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtTimKiemNL">
+                </Component>
+                <Component class="javax.swing.JButton" name="btnTimKiemNL">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="T&#xec;m ki?m"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
