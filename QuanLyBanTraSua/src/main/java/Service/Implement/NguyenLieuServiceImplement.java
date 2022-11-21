@@ -62,23 +62,66 @@ public class NguyenLieuServiceImplement implements NguyenLieuServiceInterface{
 
     @Override
     public boolean checkMa(String Ma) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        List<NguyenLieu> list = new ArrayList<>();
+        list = (List<NguyenLieu>) nlRP.getone(Ma);
+        if(list == null){
+            return false;
+        }
+        return true;
     }
 
     @Override
-    public List<NguyenLieuVModel> getOne(String ma) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public NguyenLieuVModel getOne(String ma) {
+        NguyenLieu nguyenLieu = new NguyenLieu();
+        nguyenLieu = nlRP.getone(ma);
+        NguyenLieuVModel nlVMD = new NguyenLieuVModel();
+        
+            nlVMD.setGia(nguyenLieu.getGia());
+            nlVMD.setHanSuDung(nguyenLieu.getHSD());
+            nlVMD.setMa(nguyenLieu.getMa());
+            nlVMD.setNgaySanXuat(nguyenLieu.getNgaySanXuat());
+            nlVMD.setNhaCungCap(nguyenLieu.getNhaCungCap());
+            nlVMD.setSoLuong(nguyenLieu.getSoLuong());
+            nlVMD.setTen(nguyenLieu.getTen());
+            nlVMD.setTrangThai(nguyenLieu.getTrangThai());
+            nlVMD.setXuatXu(nguyenLieu.getXuatXu());
+            
+        
+        return nlVMD;
     }
     
 
     @Override
-    public void delete(String Ma) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String delete(String Ma) {
+        boolean check;
+        check = nlRP.delete(Ma);
+        if(check = true){
+            return "thành công";
+        }else{
+            return "that bai";
+        }
     }
 
     @Override
-    public void update(NguyenLieuVModel nl, String Ma) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String update(NguyenLieuVModel nl, String Ma) {
+        boolean check ;
+        NguyenLieu nlVMD = new NguyenLieu();
+            nlVMD.setGia(nl.getGia());
+            nlVMD.setHSD(nl.getHanSuDung());
+            
+            nlVMD.setNgaySanXuat(nl.getNgaySanXuat());
+            nlVMD.setNhaCungCap(nl.getNhaCungCap());
+            nlVMD.setSoLuong(nl.getSoLuong());
+            nlVMD.setTen(nl.getTen());
+            nlVMD.setTrangThai(nl.getTrangThai());
+            nlVMD.setXuatXu(nl.getXuatXu());
+        check = nlRP.update(Ma, nlVMD);
+        if(check == true){
+            return "thành công";
+        }else {
+            return "that bai";
+        }
     }
 
     @Override

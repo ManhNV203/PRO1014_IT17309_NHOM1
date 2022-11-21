@@ -32,13 +32,14 @@ import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.table.DefaultTableModel;
 
 public class quanLyTraSua_frame extends javax.swing.JFrame {
-
+    
     private SanPhamServiceInterface sanPhamServiceInterface;
     private DanhMucServiceInterface danhMucServiceInterface;
     private SizeServiceInterface sizeServiceInterface;
     List<NguyenLieuVModel> listNL = new ArrayList<>();
     DefaultTableModel model;
-    NguyenLieuServiceInterface service ;
+    NguyenLieuServiceInterface service;
+    
     public quanLyTraSua_frame() {
         initComponents();
         hoverMouse();
@@ -72,8 +73,9 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
         for (Size size : listSize) {
             tblComboBoxModelSize.addElement(size.getMa());
         }
-
+        
     }
+
     //lay thong tin san pham
     public void LoadTableDoUong() {
         DefaultTableModel tblModel = (DefaultTableModel) tblSanPhamDouong.getModel();
@@ -91,6 +93,7 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
             });
         }
     }
+
     // hien thi thong tin len from
     public void displaySanPhamFrom() {
         int row = tblSanPhamDouong.getSelectedRow();
@@ -105,6 +108,7 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
             txtmaDoUong.setEditable(false);
         }
     }
+
     //xoa trang from
     public void clearfromSanPham() {
         txtmaDoUong.setText("");
@@ -117,35 +121,73 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
         txtTimKiemKho.setText("");
         txtmaDoUong.setEditable(true);
     }
+    
+    public void fillToForm() {
+        int index = tblNguyenLieu.getSelectedRow();
+        List<NguyenLieuVModel> listVMD = new ArrayList<>();
+        listVMD = service.getAll();
+        NguyenLieuVModel nlVMD = new NguyenLieuVModel();
+        nlVMD = listVMD.get(index);
+        txtGiaNL.setText(String.valueOf(nlVMD.getGia()));
+        txtHanSuDungNL.setText(String.valueOf(nlVMD.getHanSuDung()));
+        txtMaNL.setText(nlVMD.getMa());
+        txtNhaCungCapNL.setText(nlVMD.getNhaCungCap());
+        txtSoLuongNL.setText(String.valueOf(nlVMD.getSoLuong()));
+        txtTenNL.setText(nlVMD.getTen());
+        if (nlVMD.getTrangThai() == 1) {
+            txtTrangThaiNL.setText("còn hàng");
+        } else {
+            txtTrangThaiNL.setText("het hàng");
+        }
+        txtXuatXuNL.setText(nlVMD.getXuatXu());
+        dateNSXNL.setDate(nlVMD.getNgaySanXuat());
+    }
+
+    public void reset() {
+        txtGiaNL.setText("");
+        txtHanSuDungNL.setText("");
+        txtMaNL.setText("");
+        txtNhaCungCapNL.setText("");
+        txtSoLuongNL.setText("");
+        txtTenNL.setText("");
+        
+        txtTrangThaiNL.setText("");
+        
+        txtXuatXuNL.setText("");
+        dateNSXNL.setDateFormatString("");
+        txtMaNL.setEnabled(true);
+    }
+
     //loc theo combobox
-    public void LocCBBDM(){
+    public void LocCBBDM() {
         String nameDM = (String) cbbDanhMucKho.getSelectedItem();
         DefaultTableModel tblModel = (DefaultTableModel) tblSanPhamDouong.getModel();
         tblModel.setRowCount(0);
         List<SanPhamVModel> list = sanPhamServiceInterface.getAllSP();
         for (SanPhamVModel sanPhamVModel : list) {
-            if(sanPhamVModel.getTen().equalsIgnoreCase(nameDM)){
+            if (sanPhamVModel.getTen().equalsIgnoreCase(nameDM)) {
                 tblModel.addRow(new Object[]{
-                sanPhamVModel.getMa(),
-                sanPhamVModel.getTen(),
-                sanPhamVModel.getDonGia(),
-                sanPhamVModel.getVi(),
-                sanPhamVModel.getDanhmuc(),
-                sanPhamVModel.getSize(),
-                sanPhamVModel.getTrangThai()
-            });
+                    sanPhamVModel.getMa(),
+                    sanPhamVModel.getTen(),
+                    sanPhamVModel.getDonGia(),
+                    sanPhamVModel.getVi(),
+                    sanPhamVModel.getDanhmuc(),
+                    sanPhamVModel.getSize(),
+                    sanPhamVModel.getTrangThai()
+                });
             }
         }
     }
-    public void fillToTBNL(List<NguyenLieuVModel> nl){
+    
+    public void fillToTBNL(List<NguyenLieuVModel> nl) {
         model = (DefaultTableModel) tblNguyenLieu.getModel();
         model.setRowCount(0);
         nl.forEach((t) -> {
             model.addRow(t.dataRow());
         });
-       
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -680,6 +722,11 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
         jLabel14.setText("Nhà cung c?p :");
 
         btnResetNL.setText("Reset");
+        btnResetNL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetNLActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("S? lu?ng :");
 
@@ -706,6 +753,11 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
                 "Mã", "Nguyên li?u", "Giá", "S? lu?ng", "Tr?ng thái", "Ngày s?n xu?t", "H?n s? d?ng", "Nhà cung c?p", "Xu?t x?"
             }
         ));
+        tblNguyenLieu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblNguyenLieuMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblNguyenLieu);
 
         jLabel13.setText("Tr?ng thái :");
@@ -717,12 +769,27 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
         jLabel10.setText("Giá :");
 
         btnXoaNL.setText("Xóa");
+        btnXoaNL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaNLActionPerformed(evt);
+            }
+        });
 
         btnSuaNL.setText("S?a");
+        btnSuaNL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaNLActionPerformed(evt);
+            }
+        });
 
         jLabel15.setText("Xu?t x? :");
 
         btnTimKiemNL.setText("Tìm ki?m");
+        btnTimKiemNL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimKiemNLActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlNguyenLieuLayout = new javax.swing.GroupLayout(pnlNguyenLieu);
         pnlNguyenLieu.setLayout(pnlNguyenLieuLayout);
@@ -998,22 +1065,22 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
         String nameDM = (String) cbbDanhmucSp.getSelectedItem();
         List<DanhMuc> listdm = danhMucServiceInterface.getallDM();
         for (DanhMuc danhMuc : listdm) {
-            if(danhMuc.getTenDM().equals(nameDM)){
+            if (danhMuc.getTenDM().equals(nameDM)) {
                 sanPham.setId_DanhMuc(danhMuc.getId());
             }
         }
         String maSize = (String) cbbSize.getSelectedItem();
         List<Size> listSize = sizeServiceInterface.getAllSize();
         for (Size size : listSize) {
-            if(size.getMa().equals(maSize)){
+            if (size.getMa().equals(maSize)) {
                 sanPham.setId_size(size.getId());
             }
         }
         String trangThai = txtTrangThai.getText();
-        if(trangThai.equalsIgnoreCase("Còn Hàng")){
+        if (trangThai.equalsIgnoreCase("Còn Hàng")) {
             sanPham.setTrangThai(1);
         }
-        if(trangThai.equalsIgnoreCase("Hết Hàng")){
+        if (trangThai.equalsIgnoreCase("Hết Hàng")) {
             sanPham.setTrangThai(0);
         }
         System.out.println(sanPham);
@@ -1047,22 +1114,22 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
         String nameDM = (String) cbbDanhmucSp.getSelectedItem();
         List<DanhMuc> listdm = danhMucServiceInterface.getallDM();
         for (DanhMuc danhMuc : listdm) {
-            if(danhMuc.getTenDM().equals(nameDM)){
+            if (danhMuc.getTenDM().equals(nameDM)) {
                 sanPham.setId_DanhMuc(danhMuc.getId());
             }
         }
         String maSize = (String) cbbSize.getSelectedItem();
         List<Size> listSize = sizeServiceInterface.getAllSize();
         for (Size size : listSize) {
-            if(size.getMa().equals(maSize)){
+            if (size.getMa().equals(maSize)) {
                 sanPham.setId_size(size.getId());
             }
         }
         String trangThai = txtTrangThai.getText();
-        if(trangThai.equalsIgnoreCase("Còn Hàng")){
+        if (trangThai.equalsIgnoreCase("Còn Hàng")) {
             sanPham.setTrangThai(1);
         }
-        if(trangThai.equalsIgnoreCase("Hết Hàng")){
+        if (trangThai.equalsIgnoreCase("Hết Hàng")) {
             sanPham.setTrangThai(0);
         }
         System.out.println(sanPham);
@@ -1076,8 +1143,8 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSuaDoUongActionPerformed
 
     private void btnXoaDoUongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaDoUongActionPerformed
- 
-         SanPham sanPham = new SanPham();
+        
+        SanPham sanPham = new SanPham();
         sanPham.setMa(txtmaDoUong.getText());
         try {
             sanPhamServiceInterface.deleteSanPham(sanPham);
@@ -1089,22 +1156,22 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXoaDoUongActionPerformed
 
     private void btnTimKiemKhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemKhoActionPerformed
- 
-        String tenSp= txtTimKiemKho.getText();
+        
+        String tenSp = txtTimKiemKho.getText();
         DefaultTableModel tblModel = (DefaultTableModel) tblSanPhamDouong.getModel();
         tblModel.setRowCount(0);
         List<SanPhamVModel> list = sanPhamServiceInterface.getAllSP();
         for (SanPhamVModel sanPhamVModel : list) {
-            if(sanPhamVModel.getTen().equalsIgnoreCase(tenSp)){
+            if (sanPhamVModel.getTen().equalsIgnoreCase(tenSp)) {
                 tblModel.addRow(new Object[]{
-                sanPhamVModel.getMa(),
-                sanPhamVModel.getTen(),
-                sanPhamVModel.getDonGia(),
-                sanPhamVModel.getVi(),
-                sanPhamVModel.getDanhmuc(),
-                sanPhamVModel.getSize(),
-                sanPhamVModel.getTrangThai()
-            });
+                    sanPhamVModel.getMa(),
+                    sanPhamVModel.getTen(),
+                    sanPhamVModel.getDonGia(),
+                    sanPhamVModel.getVi(),
+                    sanPhamVModel.getDanhmuc(),
+                    sanPhamVModel.getSize(),
+                    sanPhamVModel.getTrangThai()
+                });
             }
         }
     }//GEN-LAST:event_btnTimKiemKhoActionPerformed
@@ -1134,13 +1201,77 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
 
     private void btnDangXuatMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatMenuActionPerformed
         // TODO add your handling code here:
-        int check = JOptionPane.showConfirmDialog(rootPane, "b?n có ch?c mu?n dang xu?t","Ðang xu?t",JOptionPane.YES_NO_OPTION);
-        if(check ==JOptionPane.YES_OPTION){
+        int check = JOptionPane.showConfirmDialog(rootPane, "b?n có ch?c mu?n dang xu?t", "Ðang xu?t", JOptionPane.YES_NO_OPTION);
+        if (check == JOptionPane.YES_OPTION) {
             this.setVisible(false);
             DangNhapFrame dn = new DangNhapFrame();
             dn.setVisible(true);
         }
     }//GEN-LAST:event_btnDangXuatMenuActionPerformed
+
+    private void btnSuaNLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaNLActionPerformed
+        //TODO add your handling code here:
+        NguyenLieuVModel nlVMD = new NguyenLieuVModel();
+        
+        nlVMD.setGia(Double.parseDouble(txtGiaNL.getText()));
+        nlVMD.setHanSuDung(Integer.parseInt(txtHanSuDungNL.getText()));
+        
+        nlVMD.setNgaySanXuat(dateNSXNL.getDate());
+        nlVMD.setNhaCungCap(txtNhaCungCapNL.getText());
+        nlVMD.setSoLuong(Integer.parseInt(txtSoLuongNL.getText()));
+        nlVMD.setTen(txtTenNL.getText());
+        if (txtTrangThaiNL.getText() == "còn hàng") {
+            nlVMD.setTrangThai(1);
+        } else {
+            nlVMD.setTrangThai(0);
+        }
+        
+        nlVMD.setXuatXu(txtXuatXuNL.getText());
+        
+        JOptionPane.showMessageDialog(rootPane, service.update(nlVMD, txtMaNL.getText()));
+        listNL = service.getAll();
+        fillToTBNL(listNL);
+    }//GEN-LAST:event_btnSuaNLActionPerformed
+
+    private void tblNguyenLieuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNguyenLieuMouseClicked
+        // TODO add your handling code here:
+        fillToForm();
+        txtMaNL.setEnabled(false);
+        
+    }//GEN-LAST:event_tblNguyenLieuMouseClicked
+
+    private void btnResetNLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetNLActionPerformed
+        // TODO add your handling code here:
+        reset();
+    }//GEN-LAST:event_btnResetNLActionPerformed
+
+    private void btnXoaNLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaNLActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, service.delete(txtMaNL.getText()));
+        listNL = service.getAll();
+        fillToTBNL(listNL);
+    }//GEN-LAST:event_btnXoaNLActionPerformed
+
+    private void btnTimKiemNLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemNLActionPerformed
+        // TODO add your handling code here:
+        NguyenLieuVModel nl = service.getOne(txtTimKiemNL.getText());
+        txtGiaNL.setText(String.valueOf(nl.getGia()));
+        txtHanSuDungNL.setText(String.valueOf(nl.getHanSuDung()));
+        txtMaNL.setText(nl.getMa());
+        txtNhaCungCapNL.setText(nl.getNhaCungCap());
+        txtSoLuongNL.setText(String.valueOf(nl.getSoLuong()));
+        txtTenNL.setText(nl.getTen());
+        if (nl.getTrangThai() == 1) {
+            txtTrangThaiNL.setText("còn hàng");
+        } else {
+            txtTrangThaiNL.setText("het hàng");
+        }
+        txtXuatXuNL.setText(nl.getXuatXu());
+        dateNSXNL.setDate(nl.getNgaySanXuat());
+        txtMaNL.setEnabled(false);
+        
+        
+    }//GEN-LAST:event_btnTimKiemNLActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1176,17 +1307,17 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
             }
         });
     }
-
+    
     private void hoverMouse() {
         File file = new File("logots.jpg");
         try {
             Image img = ImageIO.read(file);
             lblAnh.setIcon(new ImageIcon(img.getScaledInstance(lblAnh.getWidth(), lblAnh.getHeight(), 0)));
-
+            
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
+        
         JButton btn[] = {btnBanHang_Menu, btnDangXuatMenu, btnHoaDonMenu, btnKhachHangmenu, btnKhuyenMaiMenu, btnNhanVienMenu, btnThongkeMenu, btnDangXuatMenu, btnNguyenLieuMenu, btnDoanUongMenu};
         for (JButton x : btn) {
             x.setFocusPainted(false);
@@ -1195,21 +1326,21 @@ public class quanLyTraSua_frame extends javax.swing.JFrame {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                 }
-
+                
                 @Override
                 public void mousePressed(MouseEvent e) {
                 }
-
+                
                 @Override
                 public void mouseReleased(MouseEvent e) {
                 }
-
+                
                 @Override
                 public void mouseEntered(MouseEvent e) {
                     x.setBackground(Color.white);
                     x.setForeground(Color.red);
                 }
-
+                
                 @Override
                 public void mouseExited(MouseEvent e) {
                     x.setBackground(new java.awt.Color(204, 255, 255));

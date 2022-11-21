@@ -44,13 +44,18 @@ public class NguyenLieuRepositoryImplement implements NguyenLieuRepositoryInterf
                 nl.setXuatXu(rs.getString(10));
                 System.out.println(nl);
                 list.add(nl);
+                
             }
+            
+            
             
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
+            
             return list;
+            
     }
 
 //    @Override
@@ -82,19 +87,40 @@ public class NguyenLieuRepositoryImplement implements NguyenLieuRepositoryInterf
 //    
 //    }
 
-    @Override
-    public void update(String ma, NguyenLieu nl) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void delete(String ma) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
 
     @Override
     public NguyenLieu getone(String ma) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            String sql = "select * from NguyenLieu where Ma = ?";
+            
+            NguyenLieu nl = new NguyenLieu();
+            try {
+            Connection c = DBContext.getConnection();
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setObject(1, ma);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                
+                nl.setId(rs.getString(1));
+                nl.setMa(rs.getString(2));
+                nl.setTen(rs.getString(3));
+                nl.setGia(rs.getDouble(4));
+                nl.setSoLuong(rs.getInt(5));
+                nl.setTrangThai(rs.getInt(6));
+                nl.setNgaySanXuat(rs.getDate(7));
+                nl.setHSD(rs.getInt(8));
+                nl.setNhaCungCap(rs.getString(9));
+                nl.setXuatXu(rs.getString(10));
+                
+                
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+            return nl;
     }
 //    public static void main(String[] args) {
 //        NguyenLieuRepositoryImplement nl = new NguyenLieuRepositoryImplement();
@@ -121,9 +147,51 @@ public class NguyenLieuRepositoryImplement implements NguyenLieuRepositoryInterf
             ps.setObject(9, nl.getXuatXu());
             
             check = ps.executeUpdate();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return check>0;
+    }
+
+    @Override
+    public boolean update(String ma, NguyenLieu nl) {
+        String sql = "update NguyenLieu set Ten = ?, Gia = ?, SoLuong = ?,TrangThai = ?,NXS = ?, HXD = ?,NhaCungCap = ?, XuatXu = ? where Ma = ? ";
+        int check = 0;
+        try {
+            Connection c = DBContext.getConnection();
+            PreparedStatement ps = c.prepareStatement(sql);
+           
+            ps.setObject(1, nl.getTen());
+            ps.setObject(2, nl.getGia());
+            ps.setObject(3, nl.getSoLuong());
+            ps.setObject(4, nl.getTrangThai());
+            ps.setObject(5, nl.getNgaySanXuat());
+            ps.setObject(6, nl.getHSD());
+            ps.setObject(7, nl.getNhaCungCap());
+            ps.setObject(8, nl.getXuatXu());
+            ps.setObject(9, ma);
+            
+            check = ps.executeUpdate();
+            
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return check >0;
+    }
+
+    @Override
+    public boolean delete(String ma) {
+        String sql = "delete from NguyenLieu where Ma = ?";
+        int check = 0;
+        try {
+            Connection c = DBContext.getConnection();
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setObject(1, ma);
+            check = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return check >0;
     }
 }
