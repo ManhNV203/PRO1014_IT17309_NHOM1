@@ -14,7 +14,7 @@ import java.util.List;
 public interface NguyenLieuRepositoryInterface {
     public List<NguyenLieu> all();
     boolean create(NguyenLieu nl) ;
-    public void update(String ma,NguyenLieu nl) throws Exception;
-    public void delete(String ma) throws Exception;
+    boolean update(String ma,NguyenLieu nl) ;
+    boolean delete(String ma) ;
     NguyenLieu getone(String ma);
 }
