@@ -15,9 +15,9 @@ import java.util.List;
  */
 public interface NguyenLieuServiceInterface {
     List<NguyenLieuVModel> getAll();
-    public void delete(String Ma);
-    public void update(NguyenLieuVModel nl, String Ma);
+    String delete(String Ma);
+    String update(NguyenLieuVModel nl, String Ma);
     String add(NguyenLieu nl) ;
     boolean checkMa(String Ma);
-    List<NguyenLieuVModel> getOne(String ma);
+    NguyenLieuVModel getOne(String ma);
 }
